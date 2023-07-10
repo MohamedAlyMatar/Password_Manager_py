@@ -71,3 +71,7 @@ def validate_password(password, level):
         return re.match(pattern, password) is not None
     else:
         return False
+    
+
+def get_account_names():
+    return list(passwords.keys())
