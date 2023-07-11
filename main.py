@@ -4,13 +4,15 @@ passwords = {}
 
 def menu():
     while True:
-        print("\nPassword Manager")
-        print("1. Add a password")
-        print("2. Retrieve a password")
-        print("3. Update a password")
-        print("4. Get all account names")
-        print("5. Exit")
-        choice = input("Enter your choice (1-5): ")
+        print("\n ---- Welcome to your Password Manager ---- ")
+        print(" | 1. Add a password                       | ")
+        print(" | 2. Retrieve a password                  | ")
+        print(" | 3. Update a password                    | ")
+        print(" | 4. Get all account names                | ")
+        print(" | 5. Exit                                 | ")
+        print(" ------------------------------------------- ")
+        choice = input(" -> Enter your choice (1-5): ")
+        print(" ---------------------------------------------- ")
 
         if choice == "1":
             add_password()

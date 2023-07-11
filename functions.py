@@ -8,11 +8,6 @@ password_patterns = {
     "diamond": r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])[a-zA-Z\d@#$%^&+=]{8,}$"
 }
 
-def check_password_level(password):
-    for level, pattern in password_patterns.items():
-        if re.match(pattern, password):
-            return level
-    return "Unknown"
 
 def print_colored_status(status):
     colors = {
@@ -22,7 +17,32 @@ def print_colored_status(status):
         "Unknown": "\033[0m"  # Reset color
     }
     color_code = colors.get(status, "")
-    print("Status:", color_code + status + "\033[0m")
+    print("Password level:", color_code + status + "\033[0m")
+
+
+def validate(email):
+    if re.search(r"([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+", email, re.IGNORECASE):
+        return True
+    else:
+        return False
+
+
+def get_account():
+    lock = True
+    while lock:
+        account = input("Enter your account: ")
+        if validate(account):
+            return account
+        else:
+            print("InValid email")
+        
+
+def check_password_level(password):
+    for level, pattern in password_patterns.items():
+        if re.match(pattern, password):
+            return level
+    return "Unknown"
+
 
 def get_password():
     password = input("Enter your password: ")
@@ -30,8 +50,9 @@ def get_password():
     print_colored_status(level)
     return password, level
 
+
 def add_password():
-    account = input("Enter the account name: ")
+    account = get_account()
     password, level = get_password()
 
     if validate_password(password, level):
