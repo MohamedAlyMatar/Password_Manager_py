@@ -1,5 +1,5 @@
 import re
-from main import passwords
+from project import passwords
 
 
 # Regular expression patterns for different password formats
@@ -98,3 +98,4 @@ def update_password(account, password):
 def get_account_names():
     # Return a list of account names
     return list(passwords.keys())
+
