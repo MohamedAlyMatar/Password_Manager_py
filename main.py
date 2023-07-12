@@ -2,6 +2,7 @@ from functions import *
 
 passwords = {}
 
+
 def menu():
     while True:
         print("\n ---- Welcome to your Password Manager ---- ")
@@ -41,11 +42,13 @@ def menu():
                     print(account)
         
         elif choice == "5":
+            print("Thanks for using our password manager :)")
             print("Exiting program...")
             break
 
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     menu()
