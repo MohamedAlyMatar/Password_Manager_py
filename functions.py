@@ -51,39 +51,27 @@ def get_password():
     return password, level
 
 
-def add_password():
-    account = get_account()
-    password, level = get_password()
-
-    if validate_password(password, level):
+def add_password(account, password):
+    if validate(account) and validate_password(password, check_password_level(password)):
         passwords[account] = password
-        print("Password added successfully!")
+        return "Password added successfully!"
     else:
-        print("Invalid password.")
+        return "Invalid password."
 
 
-def retrieve_password():
-    account = input("Enter the account name: ")
-
+def retrieve_password(account):
     if account in passwords:
-        print(f"Password for {account}: {passwords[account]}")
+        return f"Password for {account}: {passwords[account]}"
     else:
-        print(f"No password found for {account}.")
+        return f"No password found for {account}."
 
 
-def update_password():
-    account = input("Enter the account name: ")
-
-    if account in passwords:
-        password, level = get_password()
-
-        if validate_password(password, level):
-            passwords[account] = password
-            print("Password updated successfully!")
-        else:
-            print("Invalid password.")
+def update_password(account, password):
+    if account in passwords and validate_password(password, check_password_level(password)):
+        passwords[account] = password
+        return "Password updated successfully!"
     else:
-        print(f"No password found for {account}.")
+        return "Invalid password."
 
 
 def validate_password(password, level):
