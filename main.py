@@ -15,8 +15,8 @@ def menu():
         print(" ------------------------------------------- ")
 
         if choice == "1":
-            account = input("Enter your account: ")
-            password = input("Enter your password: ")
+            account = get_account()
+            password = get_password()
             result = add_password(account, password)
             print(result)
 

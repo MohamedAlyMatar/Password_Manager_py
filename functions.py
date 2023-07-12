@@ -48,7 +48,7 @@ def get_password():
     password = input("Enter your password: ")
     level = check_password_level(password)
     print_colored_status(level)
-    return password, level
+    return password
 
 
 def add_password(account, password):
