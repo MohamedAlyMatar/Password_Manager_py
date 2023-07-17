@@ -1,9 +1,14 @@
 # Password_Manager_py
+#### Video Demo:  https://youtu.be/QwuDWW9MFck
 
+<br>
+
+## Description:
 The Password Manager is a Python application that allows you to securely store and manage your passwords. It provides functionality to add, retrieve, and update passwords for different accounts. The application implements different levels of password complexity and uses regular expressions to validate the passwords.
 
-## Features
+<br>
 
+## Features
 - Add a password: Allows you to add a password for a specific account.
 - Retrieve a password: Retrieves the password for a given account.
 - Update a password: Updates the password for a specific account.
