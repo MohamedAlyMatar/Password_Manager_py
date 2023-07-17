@@ -1,5 +1,5 @@
 import pytest
-from functions import *
+from project import *
 
 
 def test_validate():
@@ -7,17 +7,20 @@ def test_validate():
     assert validate("invalid_email") == False
     assert validate("test@com") == False
 
+
 def test_check_password_level():
     assert check_password_level("weakpassword") == "weak"
     assert check_password_level("StrongPassword123") == "strong"
     assert check_password_level("DiamondPa$$word123") == "diamond"
     assert check_password_level("123456789") == "Unknown"
 
+
 def test_validate_password():
     assert validate_password("weakpassword", "weak") == True
     assert validate_password("StrongPassword123", "strong") == True
     assert validate_password("DiamondPa$$word123", "diamond") == True
     assert validate_password("123456789", "Unknown") == False
+
 
 def test_add_password():
     # Test adding a valid password
@@ -40,6 +43,7 @@ def test_add_password():
     assert add_password(account, password) == "Invalid password."
     assert passwords.get(account) == None
 
+
 def test_retrieve_password():
     # Test retrieving an existing password
     account = "test@example.com"
@@ -51,6 +55,7 @@ def test_retrieve_password():
     account = "test2@example.com"
     assert passwords.get(account) == None
     assert retrieve_password(account) == f"No password found for {account}."
+
 
 def test_update_password():
     # Test updating an existing password with a valid password
@@ -74,6 +79,7 @@ def test_update_password():
     assert validate_password(password, "Unknown") == False
     assert update_password(account, password) == "Invalid password."
     assert passwords.get(account) == old_password
+
 
 def test_get_account_names():
     # Test getting account names when passwords dictionary is not empty
